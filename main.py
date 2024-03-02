@@ -2,14 +2,14 @@
 # faz pelo terminal
 
 from rembg import remove
-from PIL import image
+from PIL import Image
 
 # importe sua img e no output troque de jpgpara png
 
 input_img = 'ChikipiWar.JPG'
 output_img = 'ChikipiWar.PNG'
 
-input = image.open(input_img)
+input = Image.open(input_img)
 output = remove(input)
 output.save(output_img)
 
