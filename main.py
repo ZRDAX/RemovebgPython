@@ -2,16 +2,27 @@
 # faz pelo terminal
 
 from rembg import remove
-from PIL import image
+from PIL import Image
+from tkinter import filedialog
+from ImgImport import import_Img
 
-# importe sua img e no output troque de jpgpara png
+inputImg = import_Img()
 
-input_img = 'ChikipiWar.JPG'
-output_img = 'ChikipiWar.PNG'
+if inputImg:
+    input_img = Image.open(inputImg)
 
-input = image.open(input_img)
-output = remove(input)
-output.save(output_img)
+    outputImg = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])
+
+    if outputImg:
+        output_img = remove(input_img)
+
+        # Salva a imagem de saída
+        output_img.save(outputImg)
+        print(f'Diretorio da imagem: {outputImg}')
+    else:
+        print('Erro! Nenhum diretório selecionado. Vlw!')
+else:
+    print('Erro! Nenhum arquivo selecionado. Vlw!.')
 
 # acho que vai funcionar no teu trabalho
 # é bem simples o codigo.
