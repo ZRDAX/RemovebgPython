@@ -19,6 +19,7 @@ if inputImg:
         # Salva a imagem de saída
         output_img.save(outputImg)
         print(f'Diretorio da imagem: {outputImg}')
+        print("Salvo!")
     else:
         print('Erro! Nenhum diretório selecionado. Vlw!')
 else:
